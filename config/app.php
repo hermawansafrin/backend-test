@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -123,4 +122,8 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'description' => env('APP_DESCRIPTION', 'Laravel Developer Task - PT Revenue Discovery Sdn Bhd'),
+    'author' => env('APP_AUTHOR', 'Hermawan Safrin'),
+    'keywords' => env('APP_KEYWORDS', 'Laravel, Developer, Task, PT Revenue Discovery Sdn Bhd, Hermawan Safrin'),
+    'purpose' => env('APP_PURPOSE', 'Laravel Developer Task'),
 ];
