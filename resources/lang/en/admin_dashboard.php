@@ -2,6 +2,6 @@
 
 return [
     'index' => [
-        'title' => 'Dashboard',
+        'title' => 'Welcome to Dashboard !',
     ]
 ];

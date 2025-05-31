@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Helpers\MenuHelper;
+use App\Helpers\UserHelper;
 use App\Http\Controllers\Controller;
 
 class BaseController extends Controller
@@ -14,11 +15,11 @@ class BaseController extends Controller
     public function init(): array
     {
         $menuHelper = app(MenuHelper::class);
-        // $userHelper = app(UserHelper::class);
+        $userHelper = app(UserHelper::class);
 
         $results = [
             'menus' => $menuHelper->getMenus(true),
-            // 'user' => $userHelper->getUser(),
+            'user' => $userHelper->getUserData(),
         ];
 
         return $results;

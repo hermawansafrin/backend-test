@@ -11,7 +11,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            'web.user_has_permission_to' => \App\Http\Middleware\WebUserHasPermissionTo::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

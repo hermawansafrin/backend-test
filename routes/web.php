@@ -19,11 +19,13 @@ Route::group([
     Route::group([
         'prefix' => '/settings',
         'as' => 'settings.',
+        'middleware' => 'web.user_has_permission_to:settings',
     ], function () {
         // role
         Route::group([
             'prefix' => '/role',
             'as' => 'role.',
+            'middleware' => 'web.user_has_permission_to:settings_role',
         ], function () {
             Route::get('', function () {
                 return 'role';
