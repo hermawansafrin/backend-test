@@ -19,45 +19,34 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p> Charts <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="../charts/chartjs.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>ChartJS</p>
+                @foreach($menus as $menu)
+                    <li class="nav-item">
+                        @if(!isset($menu['sub']))
+                            <a href="{{ route($menu['route_name']) }}" class="nav-link {{ $isActive1 == $menu['permission'] ? 'active' : '' }}">
+                                <i class="nav-icon {{ $menu['icon'] }}"></i>
+                                <p>{{ $menu['title'] }}</p>
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../charts/flot.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Flot</p>
+                        @else
+                            <a href="#" class="nav-link {{ $isActive1 == $menu['permission'] ? 'active' : '' }}">
+                                <i class="nav-icon {{ $menu['icon'] }}"></i>
+                                <p>
+                                    {{ $menu['title'] }}
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../charts/inline.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Inline</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../charts/uplot.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>uPlot</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="../gallery.html" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
-                        <p> Gallery </p>
-                    </a>
-                </li>
+                            <ul class="nav nav-treeview">
+                                @foreach($menu['sub'] as $sub)
+                                    <li class="nav-item {{ $isActive2 == $sub['permission'] ? 'menu-open' : '' }}">
+                                        <a href="{{ route($sub['route_name']) }}" class="nav-link {{ $isActive2 == $sub['permission'] ? 'active' : '' }}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ $sub['title'] }}</p>
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </li>
+                @endforeach
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

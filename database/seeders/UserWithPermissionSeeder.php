@@ -71,7 +71,8 @@ class UserWithPermissionSeeder extends Seeder
         // give all permission and staff role to user (except user_management)
         $staffRole = User::find($this->staffId)->assignRole($staff->name);
         foreach ($allPermissions as $permission) {
-            if ($permission->name !== 'user_management') {
+            /** cannot begin with settings for staff */
+            if (!str_starts_with($permission->name, 'settings')) {
                 $staffRole->givePermissionTo($permission->name);
             }
         }

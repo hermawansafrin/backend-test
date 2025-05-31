@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Web\AuthController;
+use App\Http\Controllers\Web\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 // auth routes
@@ -13,7 +14,20 @@ Route::group([
     'as' => 'dashboard.',
     'middleware' => 'auth',
 ], function () {
-    Route::get('', function () {
-        return view('admin.example');
-    })->name('index');
+    Route::get('', [DashboardController::class, 'index'])->name('index');
+
+    Route::group([
+        'prefix' => '/settings',
+        'as' => 'settings.',
+    ], function () {
+        // role
+        Route::group([
+            'prefix' => '/role',
+            'as' => 'role.',
+        ], function () {
+            Route::get('', function () {
+                return 'role';
+            })->name('index');
+        });
+    });
 });
