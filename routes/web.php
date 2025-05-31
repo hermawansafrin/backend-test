@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Web\AuthController;
+use App\Http\Controllers\Web\CustomerController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\RoleController;
 use App\Http\Controllers\Web\UserController;
@@ -18,6 +19,22 @@ Route::group([
 ], function () {
     Route::get('', [DashboardController::class, 'index'])->name('index');
 
+    // regional customers
+    Route::group([
+        'prefix' => '/customers',
+        'as' => 'customers.',
+        'middleware' => 'web.user_has_permission_to:customers',
+    ], function () {
+        Route::get('', [CustomerController::class, 'index'])->name('index');
+        Route::get('/get-yajra', [CustomerController::class, 'getYajra'])->name('getYajra');
+        Route::get('/create', [CustomerController::class, 'create'])->name('create');
+        Route::post('/store', [CustomerController::class, 'store'])->name('store')->middleware('web.user_has_permission_to:customers_add');
+        Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('edit');
+        Route::put('/update/{id}', [CustomerController::class, 'update'])->name('update')->middleware('web.user_has_permission_to:customers_edit');
+        Route::delete('/delete/{id}', [CustomerController::class, 'destroy'])->name('delete')->middleware('web.user_has_permission_to:customers_delete');
+    });
+
+    // regional settings
     Route::group([
         'prefix' => '/settings',
         'as' => 'settings.',

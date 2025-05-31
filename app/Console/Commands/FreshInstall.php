@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Database\Seeders\CustomerSeeder;
 use Database\Seeders\ReferenceSeeder;
 use Database\Seeders\UserWithPermissionSeeder;
 use Illuminate\Console\Command;
@@ -71,6 +72,7 @@ class FreshInstall extends Command
         $seeders = [
             UserWithPermissionSeeder::class,// must be first seed cause there is user creation with role permission data
             ReferenceSeeder::class,
+            CustomerSeeder::class,
         /** add here if there is something new */
         ];
 

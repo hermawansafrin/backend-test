@@ -19,6 +19,7 @@ return [
     #endregion suffix
     #region not suffix
         'statistics' => 'Statistics',
+        'customers' => 'Customers',
         'settings' => 'Settings',
         'settings_role' => 'Role',
         'settings_user' => 'User',

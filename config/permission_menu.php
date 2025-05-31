@@ -1,11 +1,22 @@
 <?php
 
 return [
-    /** dashboard */
+    /** statistics */
     [
         'permissions' => 'statistics',
         'parent_permissions' => null,
         'childs' => null
+    ],
+
+    /** customers */
+    [
+        'permissions' => 'customers',
+        'parent_permissions' => null,
+        'childs' => [
+            ['permissions' => 'customers_add', 'childs' => null],
+            ['permissions' => 'customers_edit', 'childs' => null],
+            ['permissions' => 'customers_delete', 'childs' => null],
+        ]
     ],
 
     /** settings */

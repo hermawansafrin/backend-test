@@ -7,6 +7,13 @@
         "sub": null
     },
     {
+        "title": "customers",
+        "permission": "customers",
+        "route_name": "dashboard.customers.index",
+        "icon": "fas fa-users",
+        "sub": null
+    },
+    {
         "title": "settings",
         "permission": "settings",
         "route_name": "",
