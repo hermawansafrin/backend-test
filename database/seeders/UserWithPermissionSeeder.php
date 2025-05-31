@@ -134,20 +134,20 @@ class UserWithPermissionSeeder extends Seeder
     {
         //id 1
         $admin = User::create([
-            'name' => 'Administrator',
+            'name' => 'Administrator Name',
             'email' => 'administrator@mail.test',
             'email_verified_at' => now(),
-            'password' => bcrypt('password'),
+            'password' => bcrypt('123456'),
             'is_active' => 1,
         ]);
         $this->administartorId = $admin->id;
 
         //id 2
         $staff = User::create([
-            'name' => 'Staff',
+            'name' => 'Staff Name',
             'email' => 'staff@mail.test',
             'email_verified_at' => now(),
-            'password' => bcrypt('password'),
+            'password' => bcrypt('123456'),
             'is_active' => 1,
         ]);
         $this->staffId = $staff->id;

@@ -1,7 +1,19 @@
 <?php
 
+use App\Http\Controllers\Web\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('admin.example');
+// auth routes
+Route::get('', [AuthController::class, 'index'])->name('login');
+Route::post('postlogin', [AuthController::class, 'postLogin'])->name('postlogin');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::group([
+    'prefix' => '/dashboard',
+    'as' => 'dashboard.',
+    'middleware' => 'auth',
+], function () {
+    Route::get('', function () {
+        return view('admin.example');
+    })->name('index');
 });

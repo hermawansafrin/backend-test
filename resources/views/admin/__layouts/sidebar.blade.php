@@ -13,7 +13,7 @@
                 <img src="{{ asset('admin-template') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ config('app.author') }}</a>
+                <a href="#" class="d-block">{{ auth()->user()->name ?? 'Guest' }}</a>
             </div>
         </div>
         <!-- Sidebar Menu -->
