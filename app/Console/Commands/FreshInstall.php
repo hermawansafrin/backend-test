@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Database\Seeders\CustomerSeeder;
 use Database\Seeders\ProductSeeder;
 use Database\Seeders\ReferenceSeeder;
+use Database\Seeders\TransactionSeeder;
 use Database\Seeders\UserWithPermissionSeeder;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
@@ -75,6 +76,7 @@ class FreshInstall extends Command
             ReferenceSeeder::class,
             CustomerSeeder::class,
             ProductSeeder::class,
+            TransactionSeeder::class,// must after customer and product seeder
         /** add here if there is something new */
         ];
 
