@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\DashboardController;
+use App\Http\Controllers\Web\RoleController;
 use Illuminate\Support\Facades\Route;
 
 // auth routes
@@ -23,13 +24,17 @@ Route::group([
     ], function () {
         // role
         Route::group([
-            'prefix' => '/role',
-            'as' => 'role.',
+            'prefix' => '/roles',
+            'as' => 'roles.',
             'middleware' => 'web.user_has_permission_to:settings_role',
         ], function () {
-            Route::get('', function () {
-                return 'role';
-            })->name('index');
+            Route::get('', [RoleController::class, 'index'])->name('index');
+            Route::get('/get-yajra', [RoleController::class, 'getYajra'])->name('getYajra');
+            Route::get('/create', [RoleController::class, 'create'])->name('create');
+            Route::post('/store', [RoleController::class, 'store'])->name('store')->middleware('web.user_has_permission_to:settings_role_add');
+            Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('edit');
+            Route::put('/update/{id}', [RoleController::class, 'update'])->name('update')->middleware('web.user_has_permission_to:settings_role_edit');
+            Route::delete('/delete/{id}', [RoleController::class, 'destroy'])->name('delete')->middleware('web.user_has_permission_to:settings_role_delete');
         });
     });
 });

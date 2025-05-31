@@ -15,6 +15,9 @@
         <script src="{{ asset('admin-template') }}/plugins/jquery/jquery.min.js"></script>
         <!-- Bootstrap 4 -->
         <script src="{{ asset('admin-template') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        @stack('before_scripts')
+
         <!-- AdminLTE App -->
         <script src="{{ asset('admin-template') }}/dist/js/adminlte.min.js"></script>
 

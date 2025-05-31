@@ -15,7 +15,7 @@
             {
                 "title": "settings_role",
                 "permission": "settings_role",
-                "route_name": "dashboard.settings.role.index",
+                "route_name": "dashboard.settings.roles.index",
                 "icon": null
             }
         ]

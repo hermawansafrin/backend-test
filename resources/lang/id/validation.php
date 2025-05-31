@@ -158,4 +158,6 @@ return [
     */
 
     'attributes' => [],
+
+    'role_name_not_allowed' => 'Nama peran tidak boleh sama dengan peran administrator atau staff.',
 ];

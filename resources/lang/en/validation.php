@@ -158,4 +158,6 @@ return [
     */
 
     'attributes' => [],
+
+    'role_name_not_allowed' => 'The role name cannot be the same as the administrator or staff role.',
 ];

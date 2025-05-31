@@ -49,8 +49,6 @@ class DashboardController extends BaseController
             ]
         );
 
-        // dd($dataView);
-
         return view($this->BLADE_PATH . 'index', $dataView);
     }
 }

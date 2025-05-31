@@ -36,6 +36,9 @@ class UserWithPermissionSeeder extends Seeder
             $this->createAllPermissions();//prepare for data permissions
             $this->createAdministratorAndStaffRole();//prepare for data administrator & staff
             DB::commit();
+
+            /** reset cache role and permissions */
+            app(PermissionRegistrar::class)->forgetCachedPermissions();
         } catch (\Exception $e) {
             DB::rollBack();
             $this->command->error($e);
@@ -50,30 +53,30 @@ class UserWithPermissionSeeder extends Seeder
     {
         // create administrator (super admin)
         $administrator = Role::create([
-            'name' => 'Administrator',
+            'name' => Role::ADMINISTRATOR_NAME,
             'guard_name' => 'web',
         ]);
 
         $allPermissions = $this->getAllPermissions();//get all permissions
 
         //give all permission and administartor role to user
-        $administratorRole = User::find($this->administartorId)->assignRole($administrator->name);
+        User::find($this->administartorId)->assignRole($administrator->name);
         foreach ($allPermissions as $permission) {
-            $administratorRole->givePermissionTo($permission->name);
+            $administrator->givePermissionTo($permission);
         }
 
         // create staff
         $staff = Role::create([
-            'name' => 'Staff',
+            'name' => Role::STAFF_NAME,
             'guard_name' => 'web',
         ]);
 
         // give all permission and staff role to user (except user_management)
-        $staffRole = User::find($this->staffId)->assignRole($staff->name);
+        User::find($this->staffId)->assignRole($staff->name);
         foreach ($allPermissions as $permission) {
             /** cannot begin with settings for staff */
             if (!str_starts_with($permission->name, 'settings')) {
-                $staffRole->givePermissionTo($permission->name);
+                $staff->givePermissionTo($permission);
             }
         }
     }

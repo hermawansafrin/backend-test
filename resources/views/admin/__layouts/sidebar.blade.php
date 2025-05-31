@@ -19,8 +19,8 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                @foreach($menus as $menu)
-                    <li class="nav-item">
+                @foreach($menus as $key => $menu)
+                    <li class="nav-item {{ ($menu['permission'] == $isActive1) ? 'menu-open' : '' }}">
                         @if(!isset($menu['sub']))
                             <a href="{{ route($menu['route_name']) }}" class="nav-link {{ $isActive1 == $menu['permission'] ? 'active' : '' }}">
                                 <i class="nav-icon {{ $menu['icon'] }}"></i>
@@ -35,18 +35,19 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                @foreach($menu['sub'] as $sub)
-                                    <li class="nav-item {{ $isActive2 == $sub['permission'] ? 'menu-open' : '' }}">
-                                        <a href="{{ route($sub['route_name']) }}" class="nav-link {{ $isActive2 == $sub['permission'] ? 'active' : '' }}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ $sub['title'] }}</p>
-                                        </a>
-                                    </li>
+                                @foreach($menu['sub'] as $subKey => $subMenu)
+                                <li class="nav-item">
+                                    <a href="{{ route($subMenu['route_name']) }}" class="nav-link {{ $isActive2 == $subMenu['permission'] ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>{{ $subMenu['title'] }}</p>
+                                    </a>
+                                </li>
                                 @endforeach
                             </ul>
                         @endif
                     </li>
                 @endforeach
+
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
