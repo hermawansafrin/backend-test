@@ -11,6 +11,8 @@ return [
     'date_ended' => 'Tanggal Selesai',
     'year' => 'Tahun',
     'isActive' => 'Status Aktif',
+    'active' => 'Aktif',
+    'inactive' => 'Tidak Aktif',
     'yes' => 'Ya',
     'no' => 'Tidak',
 ];

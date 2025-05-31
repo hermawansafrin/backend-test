@@ -51,6 +51,9 @@
                                         <tr>
                                             <th style="width: 10px">#</th>
                                             <th>{{ __($LANG_PATH.'index.table.name') }}</th>
+                                            <th>{{ __($LANG_PATH.'index.table.email') }}</th>
+                                            <th>{{ __($LANG_PATH.'index.table.role') }}</th>
+                                            <th>{{ __($LANG_PATH.'index.table.active_status') }}</th>
                                             <th>{{ __($LANG_PATH.'index.table.action') }}</th>
                                         </tr>
                                     </thead>
@@ -98,6 +101,9 @@
                 columns: [
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                     { data: 'name', name: 'name' },
+                    { data: 'email', name: 'email' },
+                    { data: 'role', name: 'role' },
+                    { data: 'active_status', name: 'active_status' },
                     { data: 'action', name: 'action', orderable: false, searchable: false },
                 ]
             });

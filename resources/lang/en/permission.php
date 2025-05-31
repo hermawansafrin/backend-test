@@ -21,5 +21,6 @@ return [
         'statistics' => 'Statistics',
         'settings' => 'Settings',
         'settings_role' => 'Role',
+        'settings_user' => 'User',
     #endregion not suffix
 ];

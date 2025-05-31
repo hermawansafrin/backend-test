@@ -21,5 +21,6 @@ return [
         'statistics' => 'Statistik',
         'settings' => 'Pengaturan',
         'settings_role' => 'Peran',
+        'settings_user' => 'Pengguna',
     #endregion not suffix
 ];

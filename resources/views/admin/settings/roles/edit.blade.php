@@ -29,9 +29,6 @@
                         </div>
                         <!-- /.card-header -->
 
-                        <input id="getEndpoint" value="{{ route($ROUTE_PATH.'getYajra') }}" type="hidden" />
-                        <input type="hidden" id="filterMsg" value="{{ __('messages.filter_implemented') }}" />
-
                         <div class="card-body">
                             {{-- saat ada action benar atau salah --}}
                             @include('admin.__components.alert_session')

@@ -10,7 +10,9 @@ return [
     'date_started' => 'Date Started',
     'date_ended' => 'Date Ended',
     'year' => 'Year',
-    'isActive' => 'Active',
+    'isActive' => 'Status Active',
+    'active' => 'Active',
+    'inactive' => 'Inactive',
     'yes' => 'Yes',
     'no' => 'No',
 ];
