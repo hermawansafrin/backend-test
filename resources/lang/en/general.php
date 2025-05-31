@@ -6,7 +6,6 @@ return [
     'not_valid' => 'Not Valid',
     'filter' => 'Filter',
     'all_data' => 'All Data',
-    'search' => 'Search',
     'date_started' => 'Date Started',
     'date_ended' => 'Date Ended',
     'year' => 'Year',
@@ -15,4 +14,11 @@ return [
     'inactive' => 'Inactive',
     'yes' => 'Yes',
     'no' => 'No',
+
+    //search filter
+    'search' => 'Search',
+    'min_stock' => 'Minimum Stock',
+    'max_stock' => 'Maximum Stock',
+    'min_price' => 'Minimum Price',
+    'max_price' => 'Maximum Price',
 ];

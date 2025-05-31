@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Customer;
+namespace App\Http\Requests\Product;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,6 +18,7 @@ class DeleteRequest extends FormRequest
 
     /**
      * Prepare the data for validation.
+     *
      * @return void
      */
     public function prepareForValidation()
@@ -35,7 +36,7 @@ class DeleteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => $this->getIdRules(), // TODO: cannot using on transaction
+            'id' => $this->getIdRules(), // TODO: cannot using on transaction details
         ];
     }
 }

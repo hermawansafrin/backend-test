@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Customer;
+namespace App\Http\Requests\Product;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     use RuleTrait;
 
@@ -17,17 +17,6 @@ class DeleteRequest extends FormRequest
     }
 
     /**
-     * Prepare the data for validation.
-     * @return void
-     */
-    public function prepareForValidation()
-    {
-        $this->merge([
-            'id' => $this->route('id'),
-        ]);
-    }
-
-    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
@@ -35,7 +24,10 @@ class DeleteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => $this->getIdRules(), // TODO: cannot using on transaction
+            'name' => $this->getNameRules(),
+            'price' => $this->getPriceRules(),
+            'stock' => $this->getStockRules(),
+            'is_active' => $this->getIsActiveRules(),
         ];
     }
 }

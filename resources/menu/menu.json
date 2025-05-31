@@ -7,6 +7,13 @@
         "sub": null
     },
     {
+        "title": "products",
+        "permission": "products",
+        "route_name": "dashboard.products.index",
+        "icon": "fas fa-box",
+        "sub": null
+    },
+    {
         "title": "customers",
         "permission": "customers",
         "route_name": "dashboard.customers.index",

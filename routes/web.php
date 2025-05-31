@@ -3,6 +3,7 @@
 use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\CustomerController;
 use App\Http\Controllers\Web\DashboardController;
+use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\RoleController;
 use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,21 @@ Route::group([
     'middleware' => 'auth',
 ], function () {
     Route::get('', [DashboardController::class, 'index'])->name('index');
+
+    // regional products
+    Route::group([
+        'prefix' => '/products',
+        'as' => 'products.',
+        'middleware' => 'web.user_has_permission_to:products',
+    ], function () {
+        Route::get('', [ProductController::class, 'index'])->name('index');
+        Route::get('/get-yajra', [ProductController::class, 'getYajra'])->name('getYajra');
+        Route::get('/create', [ProductController::class, 'create'])->name('create');
+        Route::post('/store', [ProductController::class, 'store'])->name('store')->middleware('web.user_has_permission_to:products_add');
+        Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
+        Route::put('/update/{id}', [ProductController::class, 'update'])->name('update')->middleware('web.user_has_permission_to:products_edit');
+        Route::delete('/delete/{id}', [ProductController::class, 'destroy'])->name('delete')->middleware('web.user_has_permission_to:products_delete');
+    });
 
     // regional customers
     Route::group([

@@ -50,12 +50,12 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="email" class="form-label">
-                                        {{ __($LANG_PATH.'form.email.title') }}<span class="text-danger">*</span>
+                                    <label for="price" class="form-label">
+                                        {{ __($LANG_PATH.'form.price.title') }}<span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}"
-                                        placeholder="{{ __($LANG_PATH.'form.email.placeholder') }}" required>
-                                    @error('email')
+                                    <input type="number" class="form-control" id="price" name="price" value="{{ old('price') }}"
+                                        placeholder="{{ __($LANG_PATH.'form.price.placeholder') }}" required>
+                                    @error('price')
                                     <span class="text-danger ml-2" style="font-size:14px;">
                                         {{ $message }}
                                     </span>
@@ -63,19 +63,15 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="role_id" class="form-label">
-                                        {{ __($LANG_PATH.'form.role_id.title') }}<span class="text-danger">*</span>
+                                    <label for="stock" class="form-label">
+                                        {{ __($LANG_PATH.'form.stock.title') }}<span class="text-danger">*</span>
                                     </label>
-                                    <select class="form-control select2" id="role_id" name="role_id" required>
-                                        <option value="">{{ __($LANG_PATH.'form.role_id.placeholder') }}</option>
-                                        @foreach($roles as $role)
-                                        <option value="{{ $role['id'] }}" {{ old('role_id') == $role['id'] ? 'selected' : '' }}>{{ $role['name'] }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('role_id')
-                                        <span class="text-danger ml-2" style="font-size:14px;">
-                                            {{ $message }}
-                                        </span>
+                                    <input type="number" class="form-control" id="stock" name="stock" value="{{ old('stock') }}"
+                                        placeholder="{{ __($LANG_PATH.'form.stock.placeholder') }}" required>
+                                    @error('stock')
+                                    <span class="text-danger ml-2" style="font-size:14px;">
+                                        {{ $message }}
+                                    </span>
                                     @enderror
                                 </div>
 
@@ -95,31 +91,6 @@
                                     @enderror
                                 </div>
 
-                                <div class="form-group mb-3">
-                                    <label for="password" class="form-label">
-                                        {{ __($LANG_PATH.'form.password.title') }}<span class="text-danger">*</span>
-                                    </label>
-                                    <input type="password" class="form-control" id="password" name="password" value="{{ old('password') }}"
-                                        placeholder="{{ __($LANG_PATH.'form.password.placeholder') }}" required>
-                                    @error('password')
-                                        <span class="text-danger ml-2" style="font-size:14px;">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="password_confirmation" class="form-label">
-                                        {{ __($LANG_PATH.'form.password_confirmation.title') }}<span class="text-danger">*</span>
-                                    </label>
-                                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="{{ old('password_confirmation') }}"
-                                        placeholder="{{ __($LANG_PATH.'form.password_confirmation.placeholder') }}" required>
-                                    @error('password_confirmation')
-                                        <span class="text-danger ml-2" style="font-size:14px;">
-                                            {{ $message }}
-                                        </span>
-                                    @enderror
-                                </div>
 
                                 <button type="submit" class="btn btn-sm btn-primary m-2 col-12">
                                     {{ __('button.save') }}
@@ -138,20 +109,3 @@
     </section>
     <!-- /.content -->
 @endsection
-
-@push('before_styles')
-    <!-- Select2 -->
-    <link rel="stylesheet" href="{{ asset('admin-template') }}/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="{{ asset('admin-template') }}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-@endpush
-
-@push('before_scripts')
-    <!-- Select2 -->
-    <script src="{{ asset('admin-template') }}/plugins/select2/js/select2.full.min.js"></script>
-    <script>
-        $(function(){
-            //init select2
-            $('.select2').select2();
-        })
-    </script>
-@endpush
