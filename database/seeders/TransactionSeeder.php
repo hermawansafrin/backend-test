@@ -8,6 +8,7 @@ use App\Models\StatusFlow;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -89,6 +90,7 @@ class TransactionSeeder extends Seeder
             'total_without_discount' => $totalWithoutDiscount,
             'total_discount' => $totalDiscount,
             'discount_percentage' => $discountPercent,
+            'paid_date_time' => $statusFlowId === StatusFlow::COMPLETED ? Carbon::parse($createdAt)->addHours(2)->toDateTimeString() : null,
 
             'note' => 'this is note of transaction',
             'created_at' => $createdAt,
