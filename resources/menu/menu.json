@@ -7,6 +7,13 @@
         "sub": null
     },
     {
+        "title": "statistics",
+        "permission": "statistics",
+        "route_name": "dashboard.statistics.index",
+        "icon": "fas fa-chart-line",
+        "sub": null
+    },
+    {
         "title": "orders",
         "permission": "orders",
         "route_name": "dashboard.orders.index",

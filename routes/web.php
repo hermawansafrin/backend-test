@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\CustomerController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\RoleController;
+use App\Http\Controllers\Web\StatisticsController;
 use App\Http\Controllers\Web\TransactionController;
 use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,15 @@ Route::group([
     'middleware' => 'auth',
 ], function () {
     Route::get('', [DashboardController::class, 'index'])->name('index');
+
+    // regional statistics
+    Route::group([
+        'prefix' => '/statistics',
+        'as' => 'statistics.',
+        'middleware' => 'web.user_has_permission_to:statistics',
+    ], function () {
+        Route::get('', [StatisticsController::class, 'index'])->name('index');
+    });
 
     //regional orders
     Route::group([
