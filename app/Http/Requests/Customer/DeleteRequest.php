@@ -35,7 +35,7 @@ class DeleteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => $this->getIdRules(), // TODO: cannot using on transaction
+            'id' => $this->getIdDeletedRules(),
         ];
     }
 }

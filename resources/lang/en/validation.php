@@ -162,4 +162,5 @@ return [
     'role_name_not_allowed' => 'The role name cannot be the same as the administrator or staff role.',
     'transaction_not_found' => 'Transaction not found.',
     'transaction_locked' => 'Transaction cannot be changed.',
+    'cannot_delete_cause_data_has_been_used' => 'Cannot delete data cause this data has been used.',
 ];

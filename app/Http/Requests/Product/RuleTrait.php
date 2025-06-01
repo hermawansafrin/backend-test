@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Product;
 
+use App\Rules\CannotDeleteCauseDataHasBeenUsed;
+
 trait RuleTrait
 {
     /**
@@ -12,6 +14,18 @@ trait RuleTrait
     public function getIdRules(): array
     {
         return ['required', 'integer', 'numeric', 'exists:products,id'];
+    }
+
+    /**
+     * Get the validation rules for the id field.
+     *
+     * @return array
+     */
+    public function getIdDeletedRules(): array
+    {
+        $rules = $this->getIdRules();
+        $rules[] = new CannotDeleteCauseDataHasBeenUsed('transaction_items', 'product_id');
+        return $rules;
     }
 
     /**

@@ -162,4 +162,5 @@ return [
     'role_name_not_allowed' => 'Nama peran tidak boleh sama dengan peran administrator atau staff.',
     'transaction_not_found' => 'Transaksi tidak ditemukan.',
     'transaction_locked' => 'Transaksi tidak dapat diubah.',
+    'cannot_delete_cause_data_has_been_used' => 'Tidak dapat menghapus data karena data ini sudah digunakan.',
 ];
