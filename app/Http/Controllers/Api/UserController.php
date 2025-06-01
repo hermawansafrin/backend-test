@@ -34,6 +34,12 @@ class UserController extends BaseController
      *      tags={"Users"},
      *      description="Get all users",
      *      security={{"Bearer":{}}},
+     *       @OA\Parameter(
+     *          name="search_values",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="string")
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",

@@ -34,6 +34,12 @@ class RoleController extends BaseController
      *      tags={"Roles"},
      *      description="Get all roles",
      *      security={{"Bearer":{}}},
+     *      @OA\Parameter(
+     *          name="search_values",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="string")
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",

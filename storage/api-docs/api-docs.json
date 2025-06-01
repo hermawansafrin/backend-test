@@ -76,6 +76,16 @@
                 "summary": "Get all customers",
                 "description": "Get all customers",
                 "operationId": "cd7697f9a0b4c27ddf419b584fc3043f",
+                "parameters": [
+                    {
+                        "name": "search_values",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation"
@@ -218,6 +228,48 @@
                 "summary": "Get all products",
                 "description": "Get all products",
                 "operationId": "3233ff10514cadf7626df4c3b416b2d9",
+                "parameters": [
+                    {
+                        "name": "search_values",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "min_stock",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "max_stock",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "min_price",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "max_price",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation"
@@ -360,6 +412,16 @@
                 "summary": "Get all roles",
                 "description": "Get all roles",
                 "operationId": "7b66947f6be16e5ba590107522c43c6d",
+                "parameters": [
+                    {
+                        "name": "search_values",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation"
@@ -582,6 +644,56 @@
                 "summary": "Get all orders",
                 "description": "Get all orders",
                 "operationId": "4563c7aa2469385384b9763b947d7bec",
+                "parameters": [
+                    {
+                        "name": "search_values",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status_flow_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "min_total_amount",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "max_total_amount",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "min_created_at",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "max_created_at",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation"
@@ -793,6 +905,16 @@
                 "summary": "Get all users",
                 "description": "Get all users",
                 "operationId": "661161b0c3e02f999d409ee85794a0f3",
+                "parameters": [
+                    {
+                        "name": "search_values",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation"

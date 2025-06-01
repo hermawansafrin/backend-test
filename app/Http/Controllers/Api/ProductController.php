@@ -34,6 +34,36 @@ class ProductController extends BaseController
      *      tags={"Products"},
      *      description="Get all products",
      *      security={{"Bearer":{}}},
+     *      @OA\Parameter(
+     *          name="search_values",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="string")
+     *      ),
+     *      @OA\Parameter(
+     *          name="min_stock",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="integer")
+     *      ),
+     *      @OA\Parameter(
+     *          name="max_stock",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="integer")
+     *      ),
+     *      @OA\Parameter(
+     *          name="min_price",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="integer")
+     *      ),
+     *      @OA\Parameter(
+     *          name="max_price",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="integer")
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",

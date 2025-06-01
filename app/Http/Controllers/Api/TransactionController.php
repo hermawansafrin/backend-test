@@ -35,6 +35,42 @@ class TransactionController extends BaseController
      *      tags={"Orders"},
      *      description="Get all orders",
      *      security={{"Bearer":{}}},
+     *      @OA\Parameter(
+     *          name="search_values",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="string")
+     *      ),
+     *      @OA\Parameter(
+     *          name="status_flow_id",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="integer")
+     *      ),
+     *      @OA\Parameter(
+     *          name="min_total_amount",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="integer")
+     *      ),
+     *      @OA\Parameter(
+     *          name="max_total_amount",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="integer")
+     *      ),
+     *      @OA\Parameter(
+     *          name="min_created_at",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="string")
+     *      ),
+     *      @OA\Parameter(
+     *          name="max_created_at",
+     *          in="query",
+     *          required=false,
+     *          @OA\Schema(type="string")
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
@@ -150,6 +186,7 @@ class TransactionController extends BaseController
      *          required=true,
      *          @OA\Schema(type="integer")
      *      ),
+     *
      *      @OA\RequestBody(
      *          @OA\JsonContent(ref="#/components/schemas/CompleteTransaction")
      *      ),
