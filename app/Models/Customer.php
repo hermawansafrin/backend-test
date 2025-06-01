@@ -4,6 +4,46 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @OA\Schema(
+ *     schema="CreateCustomer",
+ *     @OA\Property(
+ *          property="name",
+ *          type="string",
+ *          example="Customer Name"
+ *     ),
+ *     @OA\Property(
+ *          property="email",
+ *          type="string",
+ *          example="mail@mail.test"
+ *     ),
+ *     @OA\Property(
+ *          property="phone",
+ *          type="string",
+ *          example="0832432423"
+ *     ),
+ * )
+ *
+ * @OA\Schema(
+ *     schema="UpdateCustomer",
+ *     @OA\Property(
+ *          property="name",
+ *          type="string",
+ *          example="Customer Name"
+ *     ),
+ *     @OA\Property(
+ *          property="email",
+ *          type="string",
+ *          example="mail@mail.test"
+ *     ),
+ *     @OA\Property(
+ *          property="phone",
+ *          type="string",
+ *          example="084324234"
+ *     )
+ * )
+ */
+
 class Customer extends Model
 {
     public $table = 'customers';

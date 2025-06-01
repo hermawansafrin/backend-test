@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
@@ -23,6 +24,20 @@ Route::group(['prefix' => 'v1'], function () {
             'auth:sanctum',
         ],
     ], function () {
+        // customers
+        Route::group([
+            'prefix' => 'customers',
+            'middleware' => [
+                'api.user_has_permission_to:customers',
+            ],
+        ], function () {
+            Route::get('/', [CustomerController::class, 'paginate']);
+            Route::get('/{id}', [CustomerController::class, 'show']);
+            Route::post('/', [CustomerController::class, 'store'])->middleware('api.user_has_permission_to:customers_add');
+            Route::put('/{id}', [CustomerController::class, 'update'])->middleware('api.user_has_permission_to:customers_edit');
+            Route::delete('/{id}', [CustomerController::class, 'destroy'])->middleware('api.user_has_permission_to:customers_delete');
+        });
+
         Route::group([
             'middleware' => [
                 'api.user_has_permission_to:settings',

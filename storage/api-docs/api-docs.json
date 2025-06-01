@@ -68,6 +68,148 @@
                 ]
             }
         },
+        "/customers": {
+            "get": {
+                "tags": [
+                    "Customers"
+                ],
+                "summary": "Get all customers",
+                "description": "Get all customers",
+                "operationId": "cd7697f9a0b4c27ddf419b584fc3043f",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Customers"
+                ],
+                "summary": "create customers",
+                "description": "create customers",
+                "operationId": "05089f633eadb677aafc9f3d471e7d3e",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateCustomer"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/customers/{id}": {
+            "get": {
+                "tags": [
+                    "Customers"
+                ],
+                "summary": "get customer by id",
+                "description": "get customer by id",
+                "operationId": "8ff33c8391977ff2f950c85d509becd8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Customers"
+                ],
+                "summary": "update customer",
+                "description": "update customer by id",
+                "operationId": "0e9dc1f3fbfd267a624adde82139ca1b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateCustomer"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Customers"
+                ],
+                "summary": "delete customers",
+                "description": "delete customer by id",
+                "operationId": "d53b3c4dec56ab411134df9f4f80d98c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
         "/roles": {
             "get": {
                 "tags": [
@@ -355,6 +497,40 @@
     },
     "components": {
         "schemas": {
+            "CreateCustomer": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Customer Name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "mail@mail.test"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "0832432423"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateCustomer": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Customer Name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "mail@mail.test"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "084324234"
+                    }
+                },
+                "type": "object"
+            },
             "CreateRole": {
                 "properties": {
                     "name": {
@@ -458,6 +634,10 @@
         {
             "name": "Authentication",
             "description": "Authentication"
+        },
+        {
+            "name": "Customers",
+            "description": "Customers"
         },
         {
             "name": "Roles",
