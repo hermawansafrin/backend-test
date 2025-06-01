@@ -57,6 +57,7 @@ class StatisticsController extends BaseController
 
         $userActiveVsInactive = $this->repo::getUserActiveVsInactive(true);
         $totalNumberOfOrderThisYear = $this->repo::getTotalNumberOfOrderThisYear(true);
+        // dd($totalNumberOfOrderThisYear);
         $totalSalesAmountThisYear = $this->repo::getTotalSalesAmountThisYear(true);
         $totalSalesAmountGroupedByStatus = $this->repo::getTotalSalesAmountGroupedByStatus(true);
 

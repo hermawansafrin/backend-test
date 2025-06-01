@@ -67,6 +67,10 @@ class StatisticsRepository
 
         $results = [];
         $results['title'] = 'Total Number of Completed Order This Year';
+        if (empty($orderTransactions)) {
+            $results['data'] = [];
+            return $results;
+        }
 
         foreach ($orderTransactions as $key => $value) {
             $results['data'][$key]['name'] = Carbon::createFromFormat('Y-m', $value['month'])->format('M Y');
@@ -103,6 +107,10 @@ class StatisticsRepository
 
         $results = [];
         $results['title'] = 'Total Sales Amount Completed This Year';
+        if (empty($orderTransactions)) {
+            $results['data'] = [];
+            return $results;
+        }
 
         foreach ($orderTransactions as $key => $value) {
             $results['data'][$key]['name'] = Carbon::createFromFormat('Y-m', $value['month'])->format('M Y');
