@@ -9,12 +9,12 @@ use App\Traits\ResponseTrait;
  * @OA\Info(
  *  version="1.0.0",
  *  title="Order Management System API's",
- *  description= "Cara login:
- *   Login menggunakan endpoint `/authentication/singleLogin` dengan email dan password Anda.
- *   Salin token dari respon yang dihasilkan, pada bagian `data.access_token`.
- *   Klik tombol Authorize di pojok kanan atas.
- *   Masukkan token, dengan format:  `Bearer <access_token>`.
- *   Klik tombol Authorize."
+ *  description= "How to login:
+ *   Login using the `/authentication/login` endpoint with your email and password.
+ *   Copy the token from the response, specifically from `data.token.value`.
+ *   Click the Authorize button in the top right corner.
+ *   Enter the token in the format: `Bearer <access_token>`.
+ *   Click the Authorize button."
  * )
  *
  * @OA\OpenApi(

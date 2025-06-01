@@ -29,6 +29,44 @@ class AuthRepository
     }
 
     /**
+     * Get login user
+     * @return array|null
+     */
+    public function loginUser(): array|null
+    {
+        $user = Auth::user();
+        if ($user === null) {
+            return null;
+        }
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return [
+            'user' => $user,
+            'token' => [
+                'type' => 'Bearer',
+                'value' => $token,
+            ],
+        ];
+    }
+
+    /**
+     * Logout API
+     * @param Request $request
+     * @return void
+     */
+    public function logoutApi(Request $request): void
+    {
+        // Get current token
+        $token = $request->user()->currentAccessToken();
+
+        if ($token) {
+            // Revoke the token
+            $token->delete();
+        }
+    }
+
+    /**
      * Do logout logic
      * @return void
      */

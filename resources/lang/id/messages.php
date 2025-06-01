@@ -40,4 +40,12 @@ return [
     ],
     'filter_implemented' => 'Filter berhasil diterapkan',
     'cannot_editable_or_deletable' => 'Tidak dapat diedit atau dihapus',
+
+    /**
+     * FROM API
+     */
+    'auth' => [
+        'login_success' => 'Login berhasil',
+        'logout_success' => 'Logout berhasil',
+    ]
 ];

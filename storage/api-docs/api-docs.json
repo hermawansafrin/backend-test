@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Order Management System API's",
-        "description": "Cara login:\n *   Login menggunakan endpoint `/authentication/singleLogin` dengan email dan password Anda.\n *   Salin token dari respon yang dihasilkan, pada bagian `data.access_token`.\n *   Klik tombol Authorize di pojok kanan atas.\n *   Masukkan token, dengan format:  `Bearer <access_token>`.\n *   Klik tombol Authorize.",
+        "description": "How to login:\n *   Login using the `/authentication/login` endpoint with your email and password.\n *   Copy the token from the response, specifically from `data.token.value`.\n *   Click the Authorize button in the top right corner.\n *   Enter the token in the format: `Bearer <access_token>`.\n *   Click the Authorize button.",
         "version": "1.0.0"
     },
     "servers": [
@@ -12,17 +12,53 @@
         }
     ],
     "paths": {
-        "/hr/references/a1Types": {
-            "get": {
+        "/authentication/login": {
+            "post": {
                 "tags": [
-                    "HR References"
+                    "Authentication"
                 ],
-                "summary": "Retrieve Hr A1 Type list",
-                "description": "Retrieve user list",
-                "operationId": "56b3fdfa568f835c8b9c7fe455526279",
+                "summary": "Login to systems and return the token and inits data.",
+                "description": "Do Login",
+                "operationId": "a0b5083c5b1dfa24e85eadffbc31c920",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "query",
+                        "description": "Login Username & Password",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "example": "admin@mail.test"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "example": "123456"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "Hr A1 Type list"
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/authentication/logout": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Logout user.",
+                "description": "Do Logout",
+                "operationId": "c3f856105a08dfdd9274d4c4ad74339d",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
                     }
                 },
                 "security": [
@@ -44,8 +80,8 @@
     },
     "tags": [
         {
-            "name": "HR References",
-            "description": "HR References"
+            "name": "Authentication",
+            "description": "Authentication"
         }
     ]
 }

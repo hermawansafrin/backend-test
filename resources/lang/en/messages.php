@@ -40,4 +40,12 @@ return [
     ],
     'filter_implemented' => 'Filter successfully applied',
     'cannot_editable_or_deletable' => 'Cannot be edited or deleted',
+
+    /**
+     * FROM API
+     */
+    'auth' => [
+        'login_success' => 'Login successful',
+        'logout_success' => 'Logout successful',
+    ]
 ];

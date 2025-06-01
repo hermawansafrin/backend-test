@@ -6,22 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\WebLoginRequest;
 use App\Repositories\Auth\AuthRepository;
 
-/**
- * Retrieve user list
- *
- * @OA\Get(
- *   path="/hr/references/a1Types",
- *   summary="Retrieve Hr A1 Type list",
- *   tags={"HR References"},
- *   security={{"Bearer":{}}},
- *
- *   @OA\Response(
- *     response=200,
- *     description="Hr A1 Type list",
- *   )
- * )
- */
-
 class AuthController extends Controller
 {
     /** @var string */
