@@ -494,6 +494,86 @@
                 ]
             }
         },
+        "/statistics/userActiveVsInactive": {
+            "get": {
+                "tags": [
+                    "Statistics"
+                ],
+                "summary": "Get statistics for user active vs inactive",
+                "description": "Get statistics for user active vs inactive",
+                "operationId": "39b2e5be199698054214de71b4735eeb",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/statistics/totalNumberOfOrderThisYear": {
+            "get": {
+                "tags": [
+                    "Statistics"
+                ],
+                "summary": "Get statistics for total number of completed order this year",
+                "description": "Get statistics for total number of completed order this year",
+                "operationId": "86052ad568019c047e807388baddc7ba",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/statistics/totalSalesAmountThisYear": {
+            "get": {
+                "tags": [
+                    "Statistics"
+                ],
+                "summary": "Get statistics for total sales amount completed this year",
+                "description": "Get statistics for total sales amount completed this year",
+                "operationId": "1397cea118918a31d6a2a8368986448a",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/statistics/totalSalesAmountGroupedByStatus": {
+            "get": {
+                "tags": [
+                    "Statistics"
+                ],
+                "summary": "Get statistics for total sales amount grouped by status and month",
+                "description": "Get statistics for total sales amount grouped by status and month",
+                "operationId": "71b7b81c3e8cf44a79d11bf04aabf1fd",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
         "/orders": {
             "get": {
                 "tags": [
@@ -1109,6 +1189,10 @@
         {
             "name": "Roles",
             "description": "Roles"
+        },
+        {
+            "name": "Statistics",
+            "description": "Statistics"
         },
         {
             "name": "Orders",

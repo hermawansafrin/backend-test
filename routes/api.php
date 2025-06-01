@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\StatisticsController;
 use App\Http\Controllers\Api\TransactionController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
@@ -26,6 +27,19 @@ Route::group(['prefix' => 'v1'], function () {
             'auth:sanctum',
         ],
     ], function () {
+        // statistics
+        Route::group([
+            'prefix' => 'statistics',
+            'middleware' => [
+                'api.user_has_permission_to:statistics',
+            ],
+        ], function () {
+            Route::get('/userActiveVsInactive', [StatisticsController::class, 'userActiveVsInactive']);
+            Route::get('/totalNumberOfOrderThisYear', [StatisticsController::class, 'totalNumberOfOrderThisYear']);
+            Route::get('/totalSalesAmountThisYear', [StatisticsController::class, 'totalSalesAmountThisYear']);
+            Route::get('/totalSalesAmountGroupedByStatus', [StatisticsController::class, 'totalSalesAmountGroupedByStatus']);
+        });
+
         // orders
         Route::group([
             'prefix' => 'orders',
