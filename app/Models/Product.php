@@ -4,6 +4,56 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @OA\Schema(
+ *     schema="CreateProduct",
+ *     @OA\Property(
+ *          property="name",
+ *          type="string",
+ *          example="Product Name"
+ *     ),
+ *     @OA\Property(
+ *          property="price",
+ *          type="integer",
+ *          example="100000"
+ *     ),
+ *     @OA\Property(
+ *          property="stock",
+ *          type="integer",
+ *          example="100"
+ *     ),
+ *     @OA\Property(
+ *          property="is_active",
+ *          type="integer",
+ *          example="1"
+ *     ),
+ * )
+ *
+ * @OA\Schema(
+ *     schema="UpdateProduct",
+ *     @OA\Property(
+ *          property="name",
+ *          type="string",
+ *          example="Product Name Update"
+ *     ),
+ *     @OA\Property(
+ *          property="price",
+ *          type="integer",
+ *          example="500000"
+ *     ),
+ *     @OA\Property(
+ *          property="stock",
+ *          type="integer",
+ *          example="200"
+ *     ),
+ *     @OA\Property(
+ *          property="is_active",
+ *          type="integer",
+ *          example="1"
+ *     ),
+ * )
+ */
+
 class Product extends Model
 {
     public $table = 'products';

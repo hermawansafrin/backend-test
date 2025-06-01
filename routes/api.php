@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
@@ -24,6 +25,20 @@ Route::group(['prefix' => 'v1'], function () {
             'auth:sanctum',
         ],
     ], function () {
+        // products
+        Route::group([
+            'prefix' => 'products',
+            'middleware' => [
+                'api.user_has_permission_to:products',
+            ],
+        ], function () {
+            Route::get('/', [ProductController::class, 'paginate']);
+            Route::get('/{id}', [ProductController::class, 'show']);
+            Route::post('/', [ProductController::class, 'store'])->middleware('api.user_has_permission_to:products_add');
+            Route::put('/{id}', [ProductController::class, 'update'])->middleware('api.user_has_permission_to:products_edit');
+            Route::delete('/{id}', [ProductController::class, 'destroy'])->middleware('api.user_has_permission_to:products_delete');
+        });
+
         // customers
         Route::group([
             'prefix' => 'customers',
