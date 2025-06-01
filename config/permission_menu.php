@@ -8,6 +8,17 @@ return [
         'childs' => null
     ],
 
+    /** orders */
+    [
+        'permissions' => 'orders',
+        'parent_permissions' => null,
+        'childs' => [
+            ['permissions' => 'orders_add', 'childs' => null],
+            ['permissions' => 'orders_edit', 'childs' => null],
+            ['permissions' => 'orders_delete', 'childs' => null],
+        ]
+    ],
+
     /** products */
     [
         'permissions' => 'products',

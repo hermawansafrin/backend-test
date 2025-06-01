@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\CustomerController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\RoleController;
+use App\Http\Controllers\Web\TransactionController;
 use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,24 @@ Route::group([
     'middleware' => 'auth',
 ], function () {
     Route::get('', [DashboardController::class, 'index'])->name('index');
+
+    //regional orders
+    Route::group([
+        'prefix' => '/orders',
+        'as' => 'orders.',
+        'middleware' => 'web.user_has_permission_to:orders',
+    ], function () {
+        Route::get('', [TransactionController::class, 'index'])->name('index');
+        Route::get('/get-yajra', [TransactionController::class, 'getYajra'])->name('getYajra');
+        Route::get('/detail/{id}', [TransactionController::class, 'detail'])->name('detail');
+        Route::get('/create', [TransactionController::class, 'create'])->name('create');
+        Route::post('/store', [TransactionController::class, 'store'])->name('store')->middleware('web.user_has_permission_to:orders_add');
+        Route::get('/edit/{id}', [TransactionController::class, 'edit'])->name('edit');
+        Route::put('/update/{id}', [TransactionController::class, 'update'])->name('update')->middleware('web.user_has_permission_to:orders_edit');
+        Route::patch('/complete/{id}', [TransactionController::class, 'complete'])->name('complete')->middleware('web.user_has_permission_to:orders_edit');
+        Route::patch('/cancel/{id}', [TransactionController::class, 'cancel'])->name('cancel')->middleware('web.user_has_permission_to:orders_edit');
+        Route::delete('/delete/{id}', [TransactionController::class, 'destroy'])->name('delete')->middleware('web.user_has_permission_to:orders_delete');
+    });
 
     // regional products
     Route::group([

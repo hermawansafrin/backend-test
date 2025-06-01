@@ -49,6 +49,14 @@ class Getter
             $query->whereRaw("(products.name LIKE ?)", [$searchValues]);
         }
 
+        if ($input['only_active'] == 1) {
+            $query->whereRaw("(products.is_active = ?)", [1]);
+        }
+
+        if ($input['has_stock'] == 1) {
+            $query->where('products.stock', '>', 0);
+        }
+
         if ($input['min_stock'] !== null) {
             $query->where('products.stock', '>=', (int) $input['min_stock']);
         }
@@ -73,6 +81,38 @@ class Getter
 
         if ($input['is_paginate']) {
             return $query->paginate($input['per_page'])->toArray();
+        } else {
+            if ($input['key_by_id']) {
+                return $query->get()->keyBy('id')->toArray();
+            } else {
+                return $query->get()->toArray();
+            }
+        }
+    }
+
+    /**
+     * Get products by ids
+     * @param array $ids
+     * @param bool $keyById
+     * @return array|null
+     */
+    public function getByIds(array $ids, bool $keyById): array|null
+    {
+        $query = Product::select([
+            'products.id as id',
+            'products.name as name',
+            'products.price as price',
+            'products.stock as stock',
+        ])
+        ->whereIntegerInRaw('id', $ids)
+        ->get();
+
+        if ($query->isEmpty()) {
+            return null;
+        }
+
+        if ($keyById) {
+            return $query->keyBy('id')->toArray();
         } else {
             return $query->get()->toArray();
         }
@@ -166,6 +206,9 @@ class Getter
             'max_stock' => $request['max_stock'] ?? null,
             'min_price' => $request['min_price'] ?? null,
             'max_price' => $request['max_price'] ?? null,
+            'only_active' => $request['only_active'] ?? 0,
+            'has_stock' => $request['has_stock'] ?? 0,
+            'key_by_id' => $request['key_by_id'] ?? false,
         ];
 
         return $input;

@@ -7,5 +7,6 @@ return [
     'back' => 'Kembali',
     'save' => 'Simpan',
     'cancel' => 'Batal',
+    'complete' => 'Selesai',
     'detail' => 'Detail',
 ];

@@ -14,11 +14,22 @@ return [
     'inactive' => 'Inactive',
     'yes' => 'Yes',
     'no' => 'No',
+    'transaction' => 'Transaction',
+    'complete_confirmation' => 'Complete Confirmation',
+    'transaction_code' => 'Transaction Code',
+    'customer_name' => 'Customer Name',
+    'paid_date_time' => 'Paid Date Time',
 
     //search filter
     'search' => 'Search',
+    'all' => 'All Data',
     'min_stock' => 'Minimum Stock',
     'max_stock' => 'Maximum Stock',
     'min_price' => 'Minimum Price',
     'max_price' => 'Maximum Price',
+    'min_total_amount' => 'Minimum Total Amount',
+    'max_total_amount' => 'Maximum Total Amount',
+    'min_created_at' => 'Minimum Created At',
+    'max_created_at' => 'Maximum Created At',
+    'status' => 'Status',
 ];

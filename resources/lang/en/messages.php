@@ -15,8 +15,12 @@ return [
     'action_delete' => 'deleted',
     'action_reset' => 'reset',
     'action_asked' => 'submitted',
+    'action_cancel' => 'cancelled',
+    'action_complete' => 'completed',
 
     'confirmation' => [
+        'cancel' => 'Are you sure you want to cancel this data?',
+        'complete' => 'Are you sure you want to complete this data?',
         'delete' => 'Are you sure you want to delete this data?',
     ],
 

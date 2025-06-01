@@ -19,6 +19,7 @@ return [
     #endregion suffix
     #region not suffix
         'statistics' => 'Statistik',
+        'orders' => 'Transaksi Pesanan',
         'products' => 'Produk',
         'customers' => 'Pelanggan',
         'settings' => 'Pengaturan',

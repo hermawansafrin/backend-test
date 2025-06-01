@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'warning' => 'Perhatian',
+    'warning' => 'Peringatan',
     'valid' => 'Valid',
     'not_valid' => 'Tidak Valid',
     'filter' => 'Filter',
@@ -14,11 +14,22 @@ return [
     'inactive' => 'Tidak Aktif',
     'yes' => 'Ya',
     'no' => 'Tidak',
+    'transaction' => 'Transaksi',
+    'complete_confirmation' => 'Konfirmasi Selesai',
+    'transaction_code' => 'Kode Transaksi',
+    'customer_name' => 'Nama Pelanggan',
+    'paid_date_time' => 'Tanggal Waktu Pembayaran',
 
-    // search
+    //search filter
     'search' => 'Cari',
-    'min_stock' => 'Minimum Stok',
-    'max_stock' => 'Maksimum Stok',
-    'min_price' => 'Minimum Harga',
-    'max_price' => 'Maksimum Harga',
+    'all' => 'Semua Data',
+    'min_stock' => 'Stok Minimum',
+    'max_stock' => 'Stok Maksimum',
+    'min_price' => 'Harga Minimum',
+    'max_price' => 'Harga Maksimum',
+    'min_total_amount' => 'Jumlah Total Minimum',
+    'max_total_amount' => 'Jumlah Total Maksimum',
+    'min_created_at' => 'Tanggal Dibuat Minimum',
+    'max_created_at' => 'Tanggal Dibuat Maksimum',
+    'status' => 'Status',
 ];

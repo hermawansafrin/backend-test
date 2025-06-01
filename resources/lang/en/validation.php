@@ -160,4 +160,6 @@ return [
     'attributes' => [],
 
     'role_name_not_allowed' => 'The role name cannot be the same as the administrator or staff role.',
+    'transaction_not_found' => 'Transaction not found.',
+    'transaction_locked' => 'Transaction cannot be changed.',
 ];

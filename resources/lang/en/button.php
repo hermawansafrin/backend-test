@@ -7,5 +7,6 @@ return [
     'back' => 'Back',
     'save' => 'Save',
     'cancel' => 'Cancel',
+    'complete' => 'Complete',
     'detail' => 'Detail',
 ];

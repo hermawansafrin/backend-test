@@ -105,7 +105,7 @@ class UserController extends BaseController
         $input = $request->validated();
         $input['using_db_transaction'] = true;
 
-        $role = $this->repo->create($input);
+        $data = $this->repo->create($input);
 
         return redirect()
             ->route($this->ROUTE_PATH . 'index')
@@ -154,7 +154,7 @@ class UserController extends BaseController
     {
         $input = $request->validated();
         $input['using_db_transaction'] = true;
-        $role = $this->repo->update($id, $input);
+        $data = $this->repo->update($id, $input);
 
         return redirect()
             ->route($this->ROUTE_PATH.'index')

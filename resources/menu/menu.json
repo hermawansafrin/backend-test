@@ -7,6 +7,13 @@
         "sub": null
     },
     {
+        "title": "orders",
+        "permission": "orders",
+        "route_name": "dashboard.orders.index",
+        "icon": "fas fa-shopping-cart",
+        "sub": null
+    },
+    {
         "title": "products",
         "permission": "products",
         "route_name": "dashboard.products.index",

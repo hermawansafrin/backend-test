@@ -36,4 +36,13 @@ class TransactionItem extends Model
             $table->uuid = (string)Str::uuid();
         });
     }
+
+    /**
+     * get product
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
 }

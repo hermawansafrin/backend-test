@@ -36,4 +36,49 @@ class Transaction extends Model
             $table->uuid = (string)Str::uuid();
         });
     }
+
+    /**
+     * get transaction items
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function transaction_items()
+    {
+        return $this->hasMany(TransactionItem::class, 'transaction_id', 'id');
+    }
+
+    /**
+     * get customer
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id', 'id');
+    }
+
+    /**
+     * get status flow
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function status_flow()
+    {
+        return $this->belongsTo(StatusFlow::class, 'status_flow_id', 'id');
+    }
+
+    /**
+     * get created user
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function created_user()
+    {
+        return $this->belongsTo(User::class, 'created_user_id', 'id');
+    }
+
+    /**
+     * get last updated user
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function last_updated_user()
+    {
+        return $this->belongsTo(User::class, 'last_updated_user_id', 'id');
+    }
 }

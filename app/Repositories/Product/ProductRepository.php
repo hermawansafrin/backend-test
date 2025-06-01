@@ -18,6 +18,20 @@ class ProductRepository
     }
 
     /**
+     * Get products by ids
+     * @param array $ids
+     * @param bool $keyById
+     * @return array|null
+     */
+    public function getByIds(array $ids, bool $keyById): array|null
+    {
+        $getter = app(Getter::class);
+        $results = $getter->getByIds($ids, $keyById);
+
+        return $results;
+    }
+
+    /**
      * Do storing role on db and return when data is stored
      * @param array $request
      * @return array|null

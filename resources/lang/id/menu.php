@@ -3,6 +3,7 @@
 return [
     'home' => 'Beranda',
     'statistics' => 'Dashboard/Statistik',
+    'orders' => 'Transaksi Pesanan',
     'products' => 'Produk',
     'customers' => 'Pelanggan',
     "settings" => "Pengaturan",
