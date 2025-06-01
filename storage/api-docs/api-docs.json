@@ -494,6 +494,217 @@
                 ]
             }
         },
+        "/orders": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get all orders",
+                "description": "Get all orders",
+                "operationId": "4563c7aa2469385384b9763b947d7bec",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "create orders",
+                "description": "create orders",
+                "operationId": "98a43cec9a302eda35e3c4305e1d3325",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateTransaction"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/orders/{id}": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "get orders by id",
+                "description": "get orders by id",
+                "operationId": "d54595678d1eb452c1105fbdbcc64992",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "update orders",
+                "description": "update orders by id",
+                "operationId": "5f85ea59d8716d26873bb329ca236eaa",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateTransaction"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "delete orders",
+                "description": "delete orders by id",
+                "operationId": "0b52c12d8e9bebea44e7077667e1fa6d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/orders/{id}/complete": {
+            "patch": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "complete orders",
+                "description": "complete orders",
+                "operationId": "959f82ad85cdd1dbd45a6d532a045735",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CompleteTransaction"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/orders/{id}/cancel": {
+            "patch": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "cancel orders",
+                "description": "cancel orders",
+                "operationId": "7caf4c4c4968cb8ed19f97867d985568",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
         "/users": {
             "get": {
                 "tags": [
@@ -747,6 +958,74 @@
                 },
                 "type": "object"
             },
+            "ItemTransaction": {
+                "properties": {
+                    "product_id": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "qty": {
+                        "type": "integer",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "CompleteTransaction": {
+                "properties": {
+                    "paid_date_time": {
+                        "type": "string",
+                        "example": "2025-01-01 00:00:00"
+                    }
+                },
+                "type": "object"
+            },
+            "CreateTransaction": {
+                "properties": {
+                    "customer_id": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "discount_percentage": {
+                        "type": "integer",
+                        "example": "0"
+                    },
+                    "note": {
+                        "type": "string",
+                        "example": "this is transaction note"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ItemTransaction"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateTransaction": {
+                "properties": {
+                    "customer_id": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "discount_percentage": {
+                        "type": "integer",
+                        "example": "0"
+                    },
+                    "note": {
+                        "type": "string",
+                        "example": "this is transaction note"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ItemTransaction"
+                        }
+                    }
+                },
+                "type": "object"
+            },
             "CreateUser": {
                 "properties": {
                     "name": {
@@ -830,6 +1109,10 @@
         {
             "name": "Roles",
             "description": "Roles"
+        },
+        {
+            "name": "Orders",
+            "description": "Orders"
         },
         {
             "name": "Users",

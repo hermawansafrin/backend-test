@@ -6,6 +6,79 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
+/**
+ * @OA\Schema(
+ *     schema="ItemTransaction",
+ *     @OA\Property(
+ *          property="product_id",
+ *          type="integer",
+ *          example="1"
+ *     ),
+ *     @OA\Property(
+ *          property="qty",
+ *          type="integer",
+ *          example="1"
+ *     ),
+ * )
+ *
+ * @OA\Schema(
+ *     schema="CompleteTransaction",
+ *     @OA\Property(
+ *          property="paid_date_time",
+ *          type="string",
+ *          example="2025-01-01 00:00:00"
+ *     ),
+ * )
+ *
+ * @OA\Schema(
+ *     schema="CreateTransaction",
+ *     @OA\Property(
+ *          property="customer_id",
+ *          type="integer",
+ *          example="1"
+ *     ),
+ *     @OA\Property(
+ *          property="discount_percentage",
+ *          type="integer",
+ *          example="0"
+ *     ),
+ *     @OA\Property(
+ *          property="note",
+ *          type="string",
+ *          example="this is transaction note"
+ *     ),
+ *     @OA\Property(
+ *          property="items",
+ *          type="array",
+ *          @OA\Items(ref="#/components/schemas/ItemTransaction")
+ *     ),
+ * )
+ *
+ * @OA\Schema(
+ *     schema="UpdateTransaction",
+ *     @OA\Property(
+ *          property="customer_id",
+ *          type="integer",
+ *          example="1"
+ *     ),
+ *     @OA\Property(
+ *          property="discount_percentage",
+ *          type="integer",
+ *          example="0"
+ *     ),
+ *     @OA\Property(
+ *          property="note",
+ *          type="string",
+ *          example="this is transaction note"
+ *     ),
+ *     @OA\Property(
+ *          property="items",
+ *          type="array",
+ *          @OA\Items(ref="#/components/schemas/ItemTransaction")
+ *     ),
+ * )
+ */
+
 class Transaction extends Model
 {
     use SoftDeletes;

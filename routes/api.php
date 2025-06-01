@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\TransactionController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,22 @@ Route::group(['prefix' => 'v1'], function () {
             'auth:sanctum',
         ],
     ], function () {
+        // orders
+        Route::group([
+            'prefix' => 'orders',
+            'middleware' => [
+                'api.user_has_permission_to:orders',
+            ],
+        ], function () {
+            Route::get('/', [TransactionController::class, 'paginate']);
+            Route::get('/{id}', [TransactionController::class, 'show']);
+            Route::post('/', [TransactionController::class, 'store'])->middleware('api.user_has_permission_to:orders_add');
+            Route::put('/{id}', [TransactionController::class, 'update'])->middleware('api.user_has_permission_to:orders_edit');
+            Route::delete('/{id}', [TransactionController::class, 'destroy'])->middleware('api.user_has_permission_to:orders_delete');
+            Route::patch('/{id}/complete', [TransactionController::class, 'complete'])->middleware('api.user_has_permission_to:orders_edit');
+            Route::patch('/{id}/cancel', [TransactionController::class, 'cancel'])->middleware('api.user_has_permission_to:orders_edit');
+        });
+
         // products
         Route::group([
             'prefix' => 'products',
