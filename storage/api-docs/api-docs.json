@@ -1,0 +1,51 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Order Management System API's",
+        "description": "Cara login:\n *   Login menggunakan endpoint `/authentication/singleLogin` dengan email dan password Anda.\n *   Salin token dari respon yang dihasilkan, pada bagian `data.access_token`.\n *   Klik tombol Authorize di pojok kanan atas.\n *   Masukkan token, dengan format:  `Bearer <access_token>`.\n *   Klik tombol Authorize.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api/v1/",
+            "description": "LIVE server"
+        }
+    ],
+    "paths": {
+        "/hr/references/a1Types": {
+            "get": {
+                "tags": [
+                    "HR References"
+                ],
+                "summary": "Retrieve Hr A1 Type list",
+                "description": "Retrieve user list",
+                "operationId": "56b3fdfa568f835c8b9c7fe455526279",
+                "responses": {
+                    "200": {
+                        "description": "Hr A1 Type list"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "Bearer": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "HR References",
+            "description": "HR References"
+        }
+    ]
+}
