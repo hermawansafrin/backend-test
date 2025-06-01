@@ -40,7 +40,8 @@ class Getter
                 'users.name as name',
                 'users.email as email',
                 'users.is_active as is_active',
-            ]);
+            ])
+            ->with('roles');
 
         if ($input['search_values'] !== null) {
             $searchValues = "%".$input['search_values']."%";

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,21 @@ Route::group(['prefix' => 'v1'], function () {
                 'api.user_has_permission_to:settings',
             ],
         ], function () {
+            // users
+            Route::group([
+                'prefix' => 'users',
+                'middleware' => [
+                    'api.user_has_permission_to:settings_user',
+                ],
+            ], function () {
+                Route::get('/', [UserController::class, 'paginate']);
+                Route::get('/{id}', [UserController::class, 'show']);
+                Route::post('/', [UserController::class, 'store'])->middleware('api.user_has_permission_to:settings_user_add');
+                Route::put('/{id}', [UserController::class, 'update'])->middleware('api.user_has_permission_to:settings_user_edit');
+                Route::delete('/{id}', [UserController::class, 'destroy'])->middleware('api.user_has_permission_to:settings_user_delete');
+            });
+
+            // roles
             Route::group([
                 'prefix' => 'roles',
                 'middleware' => [
@@ -35,7 +51,7 @@ Route::group(['prefix' => 'v1'], function () {
             ], function () {
                 Route::get('/', [RoleController::class, 'paginate']);
                 Route::get('/{id}', [RoleController::class, 'show']);
-                Route::post('/', [RoleController::class, 'store'])->middleware('api.user_has_permission_to:settings_role_create');
+                Route::post('/', [RoleController::class, 'store'])->middleware('api.user_has_permission_to:settings_role_add');
                 Route::put('/{id}', [RoleController::class, 'update'])->middleware('api.user_has_permission_to:settings_role_edit');
                 Route::delete('/{id}', [RoleController::class, 'destroy'])->middleware('api.user_has_permission_to:settings_role_delete');
             });
