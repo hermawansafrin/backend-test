@@ -67,7 +67,10 @@ class Creator
         //give permission_id valid
         $permissionIds = Helper::adjustPermissionIds($permissionIds);
 
-        $role = Role::create(['name' => $input['name']]);
+        $role = Role::create([
+            'name' => $input['name'],
+            'guard_name' => 'web'
+        ]);
 
         $dataId = $role->id ?? null;
 

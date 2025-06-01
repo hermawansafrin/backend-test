@@ -15,7 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'web.user_has_permission_to' => \App\Http\Middleware\WebUserHasPermissionTo::class,
-            'api.auth' => \App\Http\Middleware\EnsureApiTokenValid::class,
+            'api.user_has_permission_to' => \App\Http\Middleware\UserHasPermissionTo::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

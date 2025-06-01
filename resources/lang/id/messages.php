@@ -47,5 +47,6 @@ return [
     'auth' => [
         'login_success' => 'Login berhasil',
         'logout_success' => 'Logout berhasil',
+        'unauthorized' => 'Tidak diizinkan',
     ]
 ];

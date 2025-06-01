@@ -74,6 +74,7 @@ class Updater
 
         $role = Role::findOrFail($this->id);
         $role->name = $input['name'];
+        $role->guard_name = 'web';
 
         $role->save();
 
