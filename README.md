@@ -1,5 +1,7 @@
 # Backend Test Project
 
+![Demo Video](./simple-demo-app-test.mp4)
+
 This project is built with Laravel 12 and PHP 8.3, featuring an admin dashboard and Swagger OpenAPI documentation.
 
 ## About This Repository
